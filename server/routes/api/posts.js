@@ -1,8 +1,10 @@
 import express from 'express'
 import mongodb from 'mongodb'
+import dotenv from 'dotenv'
 
-const uri = 'mongodb+srv://root:69e5d9e4@cluster0.r0ob9.mongodb.net/gameReviews?retryWrites=true&w=majority'
+dotenv.config()
 
+const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.r0ob9.mongodb.net/gameReviews?retryWrites=true&w=majority`
 const router = express.Router()
 
 // Get Posts
