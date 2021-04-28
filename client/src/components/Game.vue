@@ -4,7 +4,7 @@
     <h3 class="game-name">{{ game.name }}</h3>
     <p>{{ game.released }}</p>
     <Button @btn-click="showModal()" text="Review!" class="review" />
-    <Modal v-show="isModalVisible" @close="closeModal" />
+    <Modal :gameId="game.id" :gameName="game.name" v-show="isModalVisible" @close="closeModal" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       isModalVisible: false,
+      gameName: "s",
     };
   },
   props: {

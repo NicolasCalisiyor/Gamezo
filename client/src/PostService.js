@@ -9,7 +9,8 @@ class PostService {
         try {
             const data = res.data
             return data.map(post => ({
-                ...post,
+                comment: post.review.comment,
+                gameId: post.review.gameId,
                 createdAt: new Date(post.createdAt)
             }))
         } catch (err) {
