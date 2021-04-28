@@ -4,21 +4,17 @@ const url = 'http://localhost:5000/api/posts/'
 
 class PostService {
     // Get Posts, static for PostService.getPost() and no need to instantiate the class (new PostService)
-    static getPost() {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const res = await axios.get(url)
-                const data = res.data
-                resolve(
-                    data.map(post => ({
-                        ...post,
-                        createdAt: new Date(post.createdAt)
-                    }))
-                )
-            } catch(err) {
-                reject(err)
-            }
-        })
+    static async getPosts() {
+        const res = await axios.get(url)
+        try {
+            const data = res.data
+            return data.map(post => ({
+                ...post,
+                createdAt: new Date(post.createdAt)
+            }))
+        } catch (err) {
+            return err
+        }
     }
     // Create Post
     static insertPost(text) {

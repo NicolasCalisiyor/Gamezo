@@ -2,8 +2,13 @@
   <div class="container">
     <Header title="Game Review Application" />
     <Games :games="games" />
-    <Button v-show="this.page !== 1" @btn-click="previousPage()" text="Previous" />
-    <Button @btn-click="nextPage()" text="Next" />
+    <Button
+      v-show="this.page !== 1"
+      @btn-click="previousPage()"
+      text="Previous"
+      class="nav"
+    />
+    <Button @btn-click="nextPage()" text="Next" class="nav" />
   </div>
 </template>
 
@@ -35,27 +40,27 @@ export default {
     },
     async previousPage() {
       console.log("Previous");
-      console.log(this.page)
+      console.log(this.page);
       this.page--;
       const res = await fetch(
         `https://api.rawg.io/api/games?key=600c0f210a6c4683aeb5877c96f73ca2&page=${this.page}`
       );
       const data = await res.json();
       //return data.results;
-      this.games = data.results
-      window.scrollTo(0,0)
+      this.games = data.results;
+      window.scrollTo(0, 0);
     },
     async nextPage() {
       console.log("Next");
-      console.log(this.page)
+      console.log(this.page);
       this.page++;
       const res = await fetch(
         `https://api.rawg.io/api/games?key=600c0f210a6c4683aeb5877c96f73ca2&page=${this.page}`
       );
       const data = await res.json();
       //return data.results;
-      this.games = data.results
-      window.scrollTo(0,0)
+      this.games = data.results;
+      window.scrollTo(0, 0);
     },
   },
   async created() {
@@ -71,24 +76,25 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .container {
-  max-width: 70%;
+  max-width: 75%;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid rgb(17, 3, 141);
   padding: 30px;
   border-radius: 5px;
+  background-color: black;
 }
 
 .btn {
   display: inline-block;
-  background: #000;
+  background: #1b1c30;
   color: #fff;
-  border: none;
+  border: 1pc solid white;
   padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
@@ -96,6 +102,13 @@ export default {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+}
+
+.nav {
+  width: 10%;
+  height: 100%;
+  font-size: 12px;
+  border: 1px solid white;
 }
 
 .btn:focus {
