@@ -3,7 +3,7 @@
     <img :src="game.background_image" alt="Cannot display image" />
     <h3 class="game-name">{{ game.name }}</h3>
     <p>{{ game.released }}</p>
-    <Button @btn-click="showModal()" text="Review!" class="review" />
+    <Button @btn-click="showModal()" text="Show more!" class="review" />
     <Modal :gameId="game.id" :gameName="game.name" v-show="isModalVisible" @close="closeModal" />
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
 .game {
   background: #f4f4f4;
   margin: 5px;
-  padding-bottom: 10px;
+  padding-bottom: none;
   border: 1px solid black;
   border-radius: 10px;
   background-color: #12132b;
@@ -69,10 +69,10 @@ p {
 }
 
 .review {
-  width: 50%;
+  width: 100%;
   height: 100%;
   font-size: 12px;
-  border: 1px solid white;
+  border: 0px;
 }
 
 .game-name {

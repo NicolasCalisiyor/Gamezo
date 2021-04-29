@@ -1,6 +1,13 @@
 <template>
   <div class="container">
     <Header title="Game Review Application" />
+    <input 
+        type="text"
+        v-model="search"
+        placeholder="Search for games!"
+        @keyup="fetchSearched()"
+        class="searchField"
+    />
     <Games :games="games" />
     <Button
       v-show="this.page !== 1"
@@ -28,6 +35,8 @@ export default {
     return {
       page: 1,
       games: [],
+      search: "",
+      precision: true,
     };
   },
   methods: {
@@ -62,6 +71,13 @@ export default {
       this.games = data.results;
       window.scrollTo(0, 0);
     },
+    async fetchSearched() {
+      const res = await fetch(
+        `https://api.rawg.io/api/games?key=600c0f210a6c4683aeb5877c96f73ca2&search=${this.search}&search_exact=${this.precision}`
+      );
+      const data = await res.json();
+      this.games = data.results;
+    }
   },
   async created() {
     this.games = await this.fetchGames();
@@ -80,23 +96,23 @@ export default {
 }
 
 .container {
-  max-width: 75%;
+  max-width: 80%;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid rgb(17, 3, 141);
+  border: 3px solid rgb(222, 218, 255);
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 50px;
   background-color: black;
 }
 
 .btn {
   display: inline-block;
-  background: #1b1c30;
+  background: #282941;
   color: #fff;
   border: 1pc solid white;
   padding: 10px 20px;
-  margin: 5px;
+  margin: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -122,5 +138,24 @@ export default {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+.searchField {
+  position: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 20%;
+  border-radius: 15px;
+  border:3px solid rgb(255, 255, 255);
+  background: black;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 150%;
+  
+}
+::placeholder {
+  text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 </style>

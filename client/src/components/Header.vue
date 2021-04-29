@@ -25,4 +25,9 @@ header {
   margin-bottom: 20px;
   justify-content: center;
 }
+img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>
