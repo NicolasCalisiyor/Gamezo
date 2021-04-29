@@ -1,7 +1,6 @@
 <template>
   <header>
-    <!--<h1>{{ title }}</h1>-->
-    <img :src='images.logo' alt="">
+    <img :src='images.logo' alt="Logo">
   </header>
 </template>
 

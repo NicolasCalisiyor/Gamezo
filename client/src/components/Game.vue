@@ -17,7 +17,6 @@ export default {
   data() {
     return {
       isModalVisible: false,
-      gameName: "s",
     };
   },
   props: {
