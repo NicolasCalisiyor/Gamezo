@@ -24,6 +24,6 @@ export default {
 <style>
 .grid-container {
   display: inline-grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
 }
 </style>

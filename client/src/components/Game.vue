@@ -49,6 +49,7 @@ export default {
 .game h3,
 p {
   color: white;
+  word-wrap: break-word;
 }
 
 .game img {

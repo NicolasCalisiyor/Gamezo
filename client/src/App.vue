@@ -142,20 +142,28 @@ export default {
 
 .searchField {
   position: center;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 20px;
   width: 20%;
-  border-radius: 15px;
-  border:3px solid rgb(255, 255, 255);
-  background: black;
+  outline: none;
+  border-radius: 24px;
+  border: 3px solid rgb(250, 250, 250);
+  background: none;
   color: rgb(255, 255, 255);
   text-align: center;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 150%;
+  transition: 0.5s;
+  
+}
+.searchField:focus {
+  width: 35%;
+  border-color: #9c97ff;
   
 }
 ::placeholder {
   text-align: center;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  opacity: 0.75;
 }
 </style>
