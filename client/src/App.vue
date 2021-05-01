@@ -158,7 +158,7 @@ export default {
 }
 .searchField:focus {
   width: 35%;
-  border-color: #9c97ff;
+  border-color: #392d6d;
   
 }
 ::placeholder {

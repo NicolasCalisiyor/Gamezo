@@ -69,16 +69,50 @@ p {
   text-align: center;
 }
 
-.review {
-  width: 100%;
-  height: 100%;
-  font-size: 12px;
-  border: 0px;
-}
-
 .game-name {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   padding: 1px 10px 1px 10px;
   font-size: 150%;
+}
+
+.review {
+  
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  border: 1px solid black;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: sans-serif;
+  background: linear-gradient(90deg, #020005, #32225f, #392d6d, #000000);
+  background-size: 400%;
+  z-index: 1; 
+}
+.review:hover {
+   animation: animate 8s linear infinite;
+}
+@keyframes animate {
+ 0% {
+   background-position: 0%;
+ }
+ 100% {
+   background-position: 400%;
+ }
+}
+.review:before {
+  content: '';
+  background: linear-gradient(90deg, #020005, #32225f, #392d6d, #000000);
+  background-size: 400%;
+  border-radius: 40px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: 0.5s;
+}
+.review:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
 }
 </style>
