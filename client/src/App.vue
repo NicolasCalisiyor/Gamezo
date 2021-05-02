@@ -4,7 +4,7 @@
     <input 
         type="text"
         v-model="search"
-        placeholder="Search for games!"
+        placeholder="Search..."
         @keyup="fetchSearched()"
         class="searchField"
     />
@@ -100,7 +100,7 @@ export default {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 3px solid rgb(222, 218, 255);
+  border: 3px solid rgb(212, 207, 255);
   padding: 30px;
   border-radius: 50px;
   background-color: black;
@@ -113,17 +113,17 @@ export default {
   border: 1pc solid white;
   padding: 10px 20px;
   margin: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 1vw;
   font-family: inherit;
 }
 
 .nav {
   width: 10%;
   height: 100%;
-  font-size: 12px;
+  font-size: 0.8vw;
   border: 1px solid white;
 }
 
@@ -151,19 +151,19 @@ export default {
   background: none;
   color: rgb(255, 255, 255);
   text-align: center;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 150%;
+  font-family:monospace;
+  font-size: 15px;
   transition: 0.5s;
   
 }
 .searchField:focus {
   width: 35%;
-  border-color: #392d6d;
+  border: 3px solid #2e2e72;
   
 }
 ::placeholder {
   text-align: center;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:monospace;
   opacity: 0.75;
 }
 </style>

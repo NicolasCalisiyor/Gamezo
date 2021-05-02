@@ -23,7 +23,7 @@ export default {
 
 <style>
 .grid-container {
-  display: inline-grid;
-  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
 }
 </style>
