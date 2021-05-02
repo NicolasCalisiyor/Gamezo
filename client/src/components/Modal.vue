@@ -5,32 +5,30 @@
         <header class="modal-header">
           <slot name="header">
             <div class="create-review">
-              <h1>{{ gameName }}</h1>
+              <h1>
+                {{ gameName }}
+              </h1>
               <hr />
-              <label for="create-review">Add a Review...</label>
-              <input
+              <textarea
+                class="review-textarea"
                 type="text"
                 v-model="review.comment"
-                placeholder="Create a review"
+                placeholder="Create a review..."
               />
-              <input
-                type="number"
-                v-model="review.gameId"
-                v-show="false"
-                placeholder="Game id"
-              />
-              <Button
-                type="submit"
-                @btn-click="createReview"
-                text="Add!"
-                color="green"
-              />
-              <Button
-                type="button"
-                @btn-click="browseReviews"
-                text="Browse Reviews"
-                color="green"
-              />
+              <div class="btn-container">
+                <Button
+                  class="btn-general"
+                  type="submit"
+                  @btn-click="createReview"
+                  text="Add!"
+                />
+                <Button
+                  class="btn-general"
+                  type="button"
+                  @btn-click="browseReviews"
+                  text="Browse Reviews"
+                />
+              </div>
             </div>
           </slot>
         </header>
@@ -38,10 +36,9 @@
         <section class="modal-body">
           <slot name="body">
             <div class="reviews-container">
-              <h1>Latest Reviews</h1>
               <hr />
               <p class="error" v-if="error">{{ error }}</p>
-              <div class="reviews-container">
+              <div class="reviews-container-list">
                 <div
                   class="review"
                   v-for="(review, index) in reviews"
@@ -61,9 +58,14 @@
 
         <footer class="modal-footer">
           <slot name="footer">
-            This is the default footer!
           </slot>
-          <Button type="button" @btn-click="close" text="Close!" color="red" />
+          <Button
+            class="btn-general"
+            type="button"
+            @btn-click="close"
+            text="Close!"
+            color="red"
+          />
         </footer>
       </div>
     </div>
@@ -115,6 +117,10 @@ export default {
 </script>
 
 <style scoped>
+.fas {
+  color: red;
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -125,14 +131,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .modal {
   background: #ffffff;
+  border-radius: 10px;
   box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  min-width: 30%;
+  max-width: 30%;
+  max-height: 100%;
 }
 .modal-header,
 .modal-footer {
@@ -143,7 +153,7 @@ export default {
   position: relative;
   border-bottom: 1px solid #eeeeee;
   color: #4aae9b;
-  justify-content: space-between;
+  justify-content: center;
 }
 .modal-footer {
   border-top: 1px solid #eeeeee;
@@ -154,22 +164,45 @@ export default {
   position: relative;
   padding: 20px 10px;
 }
-.btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
+
+.create-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
+
+.review-field {
+  margin: 0px;
+  width: 300px;
+  height: 170px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.reviews-container-list {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.review-textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 40%;
+  max-height: 40%;
+}
+.btn-general {
+  border-radius: 20px;
+  background-color: #020227;
+  background: linear-gradient(90deg, #020227, #0c0c49, #0c0c49, #020227);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  padding: 1 px;
+}
+
+h1 {
+  color: #020227;
 }
 </style>
