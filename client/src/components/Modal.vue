@@ -36,7 +36,7 @@
         <section class="modal-body">
           <slot name="body">
             <div class="reviews-container">
-              <hr />
+
               <p class="error" v-if="error">{{ error }}</p>
               <div class="reviews-container-list">
                 <div
@@ -163,6 +163,7 @@ export default {
 .modal-body {
   position: relative;
   padding: 20px 10px;
+  margin: 20px;
 }
 
 .create-review {

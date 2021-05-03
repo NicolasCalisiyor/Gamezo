@@ -1,21 +1,26 @@
 <template>
   <div class="container">
     <Header title="Game Review Application" />
-    <input 
-        type="text"
-        v-model="search"
-        placeholder="Search..."
-        @keyup="fetchSearched()"
-        class="searchField"
+    <input
+      type="text"
+      v-model="search"
+      placeholder="Search..."
+      @keyup="fetchSearched()"
+      class="searchField"
     />
     <Games :games="games" />
     <Button
-      v-show="this.page !== 1"
+      v-show="this.page !== 1 && search === ''"
       @btn-click="previousPage()"
       text="Previous"
       class="nav"
     />
-    <Button @btn-click="nextPage()" text="Next" class="nav" />
+    <Button
+      v-show="search === ''"
+      @btn-click="nextPage()"
+      text="Next"
+      class="nav"
+    />
   </div>
 </template>
 
@@ -77,7 +82,7 @@ export default {
       );
       const data = await res.json();
       this.games = data.results;
-    }
+    },
   },
   async created() {
     this.games = await this.fetchGames();
@@ -151,19 +156,17 @@ export default {
   background: none;
   color: rgb(255, 255, 255);
   text-align: center;
-  font-family:monospace;
+  font-family: monospace;
   font-size: 15px;
   transition: 0.5s;
-  
 }
 .searchField:focus {
   width: 35%;
   border: 3px solid #2e2e72;
-  
 }
 ::placeholder {
   text-align: center;
-  font-family:monospace;
+  font-family: monospace;
   opacity: 0.75;
 }
 </style>
