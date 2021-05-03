@@ -12,14 +12,14 @@
     <Button
       v-show="this.page !== 1 && search === ''"
       @btn-click="previousPage()"
-      text="Previous"
-      class="nav"
+      text=" Previous"
+      class="nav prev"
     />
     <Button
       v-show="search === ''"
       @btn-click="nextPage()"
       text="Next"
-      class="nav"
+      class="nav next"
     />
   </div>
 </template>
@@ -125,11 +125,27 @@ export default {
   font-family: inherit;
 }
 
+
 .nav {
   width: 10%;
   height: 100%;
-  font-size: 0.8vw;
-  border: 1px solid white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 3px solid rgb(212, 207, 255);
+  border-radius: 35px;
+  text-align: center;
+  word-wrap: break-word;
+  color: #fff;
+  font-family:monospace;
+  background: #0c0c49;
+  margin: 5px;
+}  
+
+.nav:hover {
+  background:rgb(212, 207, 255);
+  color: #020227;
+  border:3px solid #020227;
+  font-size: 16px;
 }
 
 .btn:focus {
